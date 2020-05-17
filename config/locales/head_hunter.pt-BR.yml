@@ -1,0 +1,9 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      head_hunter:
+    attributes:
+      head_hunter:
+        password: Senha
+        password_confirmation: Confirmar Senha

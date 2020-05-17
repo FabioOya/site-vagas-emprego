@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-feature 'Headhunter authentication' do
+feature 'Headhunter creates account' do
   scenario 'succesfully' do
-    headhunter = Headhunter.create!(email: 'teste@teste.com.br', password: '12345678')
+    headhunter = HeadHunter.create!(email: 'teste@teste.com.br', password: '12345678')
     
     visit root_path
-    click_on 'Entrar'
-    fill_in 'Email', with 'teste@teste.com.br'
-    fill_in 'Senha', with '12345678'
-    click_on 'Entrar'
+    click_on 'Cadastrar Headhunter'
+    fill_in 'Email', with: 'teste@teste.com.br'
+    fill_in 'Senha', with: '12345678'
+    fill_in 'Confirmar Senha', with: '12345678'
+    click_on 'Cadastrar'
 
-    expect(page).to have_content('Entrou com sucesso')
-    expect(page).not_to have_link('Entrar')
-    expect(page).to have_link('Sair')
+    expect(page).to have_content('Login efetuado com sucesso')
     expect(current_path).to eq(root_path)
 
   end
+end
