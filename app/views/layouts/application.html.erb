@@ -8,8 +8,17 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
+    <nav>
+      <% if current_head_hunter %>
+        <%= link_to 'Sair', destroy_head_hunter_session_path, method: :delete %>
+        <%= link_to 'Vagas', jobs_path %>
+      <% else %>
+        <%= link_to 'Cadastrar Headhunter', new_head_hunter_registration_path %>
+        <%= link_to 'Entrar - Headhunter', new_head_hunter_session_path %>
+      <% end %>
+    </nav>
     <%= flash[:notice] %>
     <%= flash[:alert] %>
     <%= yield %>

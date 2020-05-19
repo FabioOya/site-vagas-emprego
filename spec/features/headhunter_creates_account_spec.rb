@@ -6,11 +6,12 @@ feature 'Headhunter creates account' do
     
     visit root_path
     click_on 'Cadastrar Headhunter'
-    fill_in 'Email', with: 'teste@teste.com.br'
+    fill_in 'Email', with: 'test@test.com.br'
     fill_in 'Senha', with: '12345678'
     fill_in 'Confirmar Senha', with: '12345678'
     click_on 'Cadastrar'
     
+  
     expect(page).to have_content('Login efetuado com sucesso')
     expect(current_path).to eq(root_path)
   end

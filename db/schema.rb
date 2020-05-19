@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_17_034001) do
+ActiveRecord::Schema.define(version: 2020_05_18_165845) do
 
   create_table "head_hunters", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,4 +33,19 @@ ActiveRecord::Schema.define(version: 2020_05_17_034001) do
     t.index ["unlock_token"], name: "index_head_hunters_on_unlock_token", unique: true
   end
 
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "skills"
+    t.decimal "salary"
+    t.string "job_level"
+    t.date "end_date"
+    t.string "location"
+    t.integer "head_hunter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["head_hunter_id"], name: "index_jobs_on_head_hunter_id"
+  end
+
+  add_foreign_key "jobs", "head_hunters"
 end
