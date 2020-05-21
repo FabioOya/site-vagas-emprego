@@ -14,15 +14,17 @@
       <% if current_head_hunter %>
         <%= link_to 'Sair', destroy_head_hunter_session_path, method: :delete %>
         <%= link_to 'Vagas', jobs_path %>
-      <% elsif current_candidate %>]
-        <%= link_to 'Completar perfil'  %>
+        <%= link_to 'Ver candidatos cadastrados', profiles_path %>
+      <% end %>
+      <% if current_candidate %>
+        <%= link_to 'Perfil', @profile %>
         <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
-      <% else %>
+      <% end %>
+      <% if current_head_hunter.nil? && current_candidate.nil? %>
         <%= link_to 'Cadastrar Candidato', new_candidate_registration_path %>
         <%= link_to 'Cadastrar Headhunter', new_head_hunter_registration_path %>
         <%= link_to 'Entrar - Headhunter', new_head_hunter_session_path %>
         <%= link_to 'Entrar - Candidato', new_candidate_session_path %>
-
       <% end %>
     </nav>
     <%= flash[:notice] %>

@@ -1,0 +1,11 @@
+<h1>Candidatos cadastrados</h1>
+<% if @profiles.empty? %>
+	<p><%= 'Nenhum candidato registrado' %></p>
+<% else %>
+	<% @profiles.each do |p| %>
+    <dd id='photo'><%= image_tag p.photo, size: "200x120" if p.photo.attached? %></dd> 
+    <li><%= link_to p.social_name, profile_path(id: p.id) %></li>
+    <p><%= p.formation %></p>
+    <p><%= p.description %></p>
+	<% end %>
+<% end %>

@@ -1,0 +1,18 @@
+<%= form_with model: @job, local: true do |j| %>
+  <%= j.label :title, 'Vaga' %>
+  <%= j.text_field :title %>
+  <%= j.label :description, 'Descrição da vaga' %>
+  <%= j.text_field :description %>
+  <%= j.label :skills, 'Habilidades desejáveis' %>
+  <%= j.text_field :skills %>
+  <%= j.label :salary, 'Faixa salarial' %>
+  <%= j.text_field :salary %>
+  <%= j.label :job_level, 'Nível da vaga' %>
+  <%= j.select :job_level, ['Estágio', 'Júnior', 'Pleno', 
+                            'Sênior', 'Especialista','Diretor'] %>
+  <%= j.label :end_date, 'Data limite' %>
+  <%= j.date_field :end_date %> 
+  <%= j.label :location, 'Localização da vaga' %>
+  <%= j.text_field :location %>
+  <%= j.submit 'Enviar' %>
+<% end %>

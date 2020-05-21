@@ -2,3 +2,9 @@
   <h1>Job Site</h1>
   <h2>Bem vindo ao site de vagas de emprego</h2>
 </header>
+<% if current_candidate && !current_candidate.profile.present? %>   
+  <script type="text/javascript">
+    window.location.href="/profiles/new" 
+  </script>
+<% end %>
+      
