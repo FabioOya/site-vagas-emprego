@@ -1,5 +1,24 @@
+<h1>Vagas de emprego</h1>
+
+<% if @jobs.empty?%>
+  <p>Nenhuma vaga disponível</p>
+<%else%>
+  <dl>
+    <% @jobs.each do |j| %>
+      <dt>Vaga: </dt>
+      <dd><%= j.title %></dd>
+      <dt>Descrição da Vaga: </dt>
+      <dd><%= j.description %></dd>
+      <dt>Nível da vaga: </dt>
+      <dd><%= j.job_level %>
+      <dt>Faixa salarial: </dt>
+      <dd><%= j.salary %></dd>
+      <dt id="job-<%= j.id %>"><%= link_to "Ver Detalhes", j, id: "dwetails-#{j.id}" %></dt>
+     <%end%>
+  </dl>
+<%end%>
+
 <% if current_head_hunter %>
 <%= link_to 'Cadastrar vaga', new_job_path %>
 <% end %>
-
 <%= link_to 'Voltar', root_path %>

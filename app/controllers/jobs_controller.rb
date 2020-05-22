@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authenticate_head_hunter!
+  #before_action :authenticate_head_hunter!
   def index
    @jobs = Job.all
   end

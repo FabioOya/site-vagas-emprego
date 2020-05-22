@@ -6,10 +6,10 @@ feature 'Candidate automatically redirect to complete profile' do
 
     login_as candidate, scope: :candidate
     visit root_path
-    
+
     expect(current_path).to eq(new_profile_path)
-    fill_in 'Nome completo', with: 'Fabio Iwao Oya'
     attach_file('Foto', '/home/fabio_iwao/site-vagas-emprego/app/assets/profile.png')
+    fill_in 'Nome completo', with: 'Fabio Iwao Oya'
     fill_in 'Nome social', with: 'Joao'
     fill_in 'Data de nascimento', with: '03/08/1993'
     fill_in 'Formação', with: 'Ensino Superior'

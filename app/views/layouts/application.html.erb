@@ -12,11 +12,12 @@
   <body>
     <nav>
       <% if current_head_hunter %>
-        <%= link_to 'Sair', destroy_head_hunter_session_path, method: :delete %>
         <%= link_to 'Vagas', jobs_path %>
         <%= link_to 'Ver candidatos cadastrados', profiles_path %>
+        <%= link_to 'Sair', destroy_head_hunter_session_path, method: :delete %>
       <% end %>
       <% if current_candidate %>
+        <%= link_to 'Vagas', jobs_path %>
         <%= link_to 'Perfil', @profile %>
         <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
       <% end %>
