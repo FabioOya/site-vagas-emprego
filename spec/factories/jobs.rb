@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :job do
     sequence(:title) { |n| "Job#{n}"}
-    description { "Vaga de emprego" }
+    description { "Descrição vaga emprego" }
     skills { "Habilidades" }
     salary { "Salario" }
     job_level { "Estágiario" }

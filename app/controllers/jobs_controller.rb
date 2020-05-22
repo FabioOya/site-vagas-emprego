@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
-  #before_action :authenticate_head_hunter!
+  #before_action :authenticate_head_hunter!, only: [:index]
   def index
-   @jobs = Job.all
+    @jobs = Job.all
   end
   
   def show
@@ -36,6 +36,12 @@ class JobsController < ApplicationController
       render :edit
     end
   end
+
+  def search
+    @jobs = Job.search(params[:q])
+    render :index
+  end
+
   private
 
   def job_params
