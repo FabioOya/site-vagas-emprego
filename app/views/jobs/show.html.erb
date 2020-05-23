@@ -14,7 +14,9 @@
     <dt>Localização: </dt>
     <dd><%= @job.location %></dd>
     <% if candidate_signed_in? %>
-      <dt> <%= link_to "Candidatar-se", new_job_apply_job_path(@job) %></dt>
+      <dt> <%= link_to 'Candidatar-se', new_job_apply_job_path(@job) %></dt>
+    <% elsif head_hunter_signed_in? %>
+      <%= link_to  'Candidatos', candidates_applied_job_path(@job) %>
     <% end %>
   </dl>
   <%= link_to 'Voltar', jobs_path %>

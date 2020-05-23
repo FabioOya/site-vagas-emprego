@@ -18,7 +18,7 @@
     <dt>Data de nascimento: </dt>
     <dd><%= l @profile.birthdate %></dd>
   </dl>
-  <% if current_candidate.profile == @profile %>
+  <% if @profile.candidate == current_candidate %>
     <%= link_to 'Editar Perfil', edit_profile_path %>
   <% end %> 
   <%= link_to 'Voltar', root_path %>

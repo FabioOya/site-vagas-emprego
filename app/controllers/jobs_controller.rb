@@ -47,6 +47,10 @@ class JobsController < ApplicationController
     render :index
   end
 
+  def candidates_applied
+    @job = Job.find(params[:id])
+  end
+
   private
 
   def job_params

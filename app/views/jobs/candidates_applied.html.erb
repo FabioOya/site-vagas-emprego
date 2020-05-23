@@ -1,0 +1,4 @@
+<h1>Candidatos aplicados na sua vaga</h1>
+<% @job.profiles.each do |candidate| %>
+  <p><%= link_to candidate.full_name, candidate %></p>
+<% end %> 
