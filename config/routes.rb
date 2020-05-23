@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :profiles do
     get 'appliedjobs', on: :collection
+    resources :commentaries, only: [:create]
   end
 
 end

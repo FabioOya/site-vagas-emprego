@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
   
   def show
     @profile = Profile.find(params[:id])
+    @commentary = Commentary.new
     #@profile = Profile.find_by(candidate_id: params[:id])
   end
 
