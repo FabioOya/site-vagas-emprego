@@ -1,5 +1,10 @@
 class ApplyJobsController < ApplicationController
   before_action :authenticate_candidate!, only: [:new, :create]
+  def index
+    @apply = ApplyJob.all
+    @job = @Job.all
+    @job = Job.find(params[:job_id])
+  end
   def new
     @job = Job.find(params[:job_id])
     @profile = current_candidate.profile

@@ -9,6 +9,8 @@
     <%= s.search_field :q %>
     <%= s.submit 'Buscar' %>
   <% end %>
+<% end %>
+<% if current_candidate  %>
   <dl>
     <% @jobs.each do |j| %>
       <dt>Vaga: </dt>
@@ -18,13 +20,29 @@
       <dt>Nível da vaga: </dt>
       <dd><%= j.job_level %>
       <dt>Faixa salarial: </dt>
-      <dd><%= j.salary %></dd>
+      <dd><%= number_to_currency j.salary %></dd>
       <dt id="job-<%= j.id %>"><%= link_to "Ver Detalhes", j, id: "dwetails-#{j.id}" %></dt>
-     <%end%>
+    <% end %>
   </dl>
-<%end%>
+<% elsif head_hunter_signed_in? %>
+  <% @jobs.each do |j| %>
+    <% if j.head_hunter_id == current_head_hunter.id %>
+      <dl>
+        <dt>Vaga: </dt>
+        <dd><%= j.title %></dd>
+        <dt>Descrição da Vaga: </dt>
+        <dd><%= j.description %></dd>
+        <dt>Nível da vaga: </dt>
+        <dd><%= j.job_level %>
+        <dt>Faixa salarial: </dt>
+        <dd><%= number_to_currency j.salary %></dd>
+        <dt id="job-<%= j.id %>"><%= link_to "Ver Detalhes", j, id: "dwetails-#{j.id}" %></dt>
+      </dl>
+    <% end %>
+  <% end %>
+<% end %>
 
 <% if current_head_hunter %>
-<%= link_to 'Cadastrar vaga', new_job_path %>
+  <%= link_to 'Cadastrar vaga', new_job_path %>
 <% end %>
 <%= link_to 'Voltar', root_path %>

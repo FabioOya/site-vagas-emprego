@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:title) { |n| "Job#{n}"}
     description { "Descrição vaga emprego" }
     skills { "Habilidades" }
-    salary { "Salario" }
+    salary { 2000 }
     job_level { "Estágiario" }
     end_date { "#{1.month.from_now}" }
     location { "Pinheiros" }

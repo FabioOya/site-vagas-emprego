@@ -6,8 +6,8 @@ class ProfilesController < ApplicationController
   end
   
   def show
-    #@profile = Profile.find_by(candidate_id: params[:id])
     @profile = Profile.find(params[:id])
+    #@profile = Profile.find_by(candidate_id: params[:id])
   end
 
   def new
@@ -37,10 +37,10 @@ class ProfilesController < ApplicationController
       render :edit
     end
   end
-
-    # def authorize_admin
-  #   redirect_to root_path, notice: 'Não autorizado' unless current_user.admin?
-  # end
+  
+  def appliedjobs
+    @profile = Profile.find(current_candidate.id)
+  end
   
   private
 

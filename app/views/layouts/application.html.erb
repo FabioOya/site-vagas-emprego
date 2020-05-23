@@ -18,6 +18,7 @@
       <% end %>
       <% if current_candidate %>
         <%= link_to 'Vagas', jobs_path %>
+        <%= link_to 'Vagas aplicadas', appliedjobs_profiles_path %>
         <%= link_to 'Perfil', current_candidate.profile %>
         <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
       <% end %>
