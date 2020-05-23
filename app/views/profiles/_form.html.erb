@@ -1,3 +1,10 @@
+<% if @profile.errors.any? %>
+  <ul>
+    <% @profile.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model: @profile, local: true do |p| %>
   <%= p.label :full_name, 'Nome completo' %>
   <%= p.text_field :full_name %>

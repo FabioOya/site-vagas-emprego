@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  #before_action :authenticate_head_hunter!, only: [:index]
+  before_action :authenticate_head_hunter!, only: [:new, :create]
   def index
     @jobs = Job.all
   end
@@ -38,7 +38,12 @@ class JobsController < ApplicationController
   end
 
   def search
-    @jobs = Job.search(params[:q])
+    @q = params[:q]
+    @jobs = Job.search(@q)   
+    # if @jobs.blank? || params[:q].blank?   ##TODO configurar busca caso nenhum resultado encontrado - testes quebrando quando implementado
+    #   @jobs = Job.all
+    #   flash.now[:alert] = "Nenhum resultado encontrado para: #{@q}"
+    #end
     render :index
   end
 

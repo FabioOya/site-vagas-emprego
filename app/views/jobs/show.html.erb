@@ -12,7 +12,10 @@
     <dt>Data limite: </dt>
     <dd><%= l @job.end_date %></dd>
     <dt>Localização: </dt>
-    <dd><%= @job.location %></dd> 
+    <dd><%= @job.location %></dd>
+    <% if candidate_signed_in? %>
+      <dt> <%= link_to "Candidatar-se", new_job_apply_job_path(@job) %></dt>
+    <% end %>
   </dl>
   <%= link_to 'Voltar', jobs_path %>
 </section>

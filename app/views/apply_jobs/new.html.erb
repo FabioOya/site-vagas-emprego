@@ -1,0 +1,12 @@
+<% if @apply.errors.any? %>
+  <ul>
+    <% @apply.errors.full_messages.each do |message| %>
+     <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<%= form_with model: [@job, @apply], local: true do |f| %>
+  <%= f.label :reason, 'Razões para candidatar-se'%>
+  <%= f.text_field :reason %>
+  <%= f.submit 'Enviar' %>
+<% end  %> 

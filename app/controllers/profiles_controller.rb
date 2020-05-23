@@ -1,13 +1,13 @@
 class ProfilesController < ApplicationController
-  #before_action :authenticate_candidate!
+  before_action :authenticate_candidate!, only: [:new, :create, :edit, :update]
   before_action :authenticate_head_hunter!, only: [:index]
   def index
     @profiles = Profile.all     
   end
   
   def show
-    @profile = Profile.find_by(candidate_id: params[:id])
-    #@profile = Profile.find(params[:id])
+    #@profile = Profile.find_by(candidate_id: params[:id])
+    @profile = Profile.find(params[:id])
   end
 
   def new

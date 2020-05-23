@@ -6,6 +6,6 @@ FactoryBot.define do
     formation { "Uma formação" }
     description { "Uma descrição" }
     experience { "Uma experiência" }
-    candidate { nil }
+    candidate { create(:candidate) }
   end
 end

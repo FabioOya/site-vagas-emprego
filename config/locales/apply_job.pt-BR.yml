@@ -1,0 +1,9 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      apply_job: Candidatar-se
+    attributes:
+      apply_job:
+        reason: Razão para candidatar-se
+        status: 
