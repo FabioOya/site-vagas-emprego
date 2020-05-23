@@ -25,12 +25,13 @@
     <% if @profile.candidate_id == current_candidate || head_hunter_signed_in? %>
       <h3>Comentários:</h3>
       <% @profile.commentaries.each do |commentary| %>
+        <p><%= commentary.head_hunter.email %></p>
         <p><%= commentary.text %></p>
         <p><%= l commentary.created_at %></p>
       <% end %>
     <% end %>
   <% end %>
- 
+
   <% if head_hunter_signed_in? %>
     <%= form_with model: [@profile, @commentary], local: true,  method: :post do |commentary| %>
       <%= commentary.label :text, 'Digite seu comentário' %>
