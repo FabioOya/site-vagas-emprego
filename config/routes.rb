@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'candidates_applied', on: :member
     resources :apply_jobs do
       get 'reject', on: :member
+      get 'feedback', on: :collection
     end 
   end
   resources :profiles do

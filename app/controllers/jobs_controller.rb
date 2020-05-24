@@ -49,9 +49,6 @@ class JobsController < ApplicationController
 
   def candidates_applied
     @job = Job.find(params[:id])
-    @applies = ApplyJob.all
-    @apply = ApplyJob.find(params[:id])
-    @profile = Profile.find(params[:id])
   end
 
   private

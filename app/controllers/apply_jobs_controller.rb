@@ -31,15 +31,12 @@ class ApplyJobsController < ApplicationController
 
   def reject
     @apply = ApplyJob.find(params[:id])
-    #@job = Job.find(params[:id])
-    #@apply.rejected = params[:rejected]
-    if @apply.not_rejected?
-      @apply.rejected!
-    elsif @apply.rejected? 
-      @profile.not_rejected!
-    end
-    # @apply.rejected!
-    @apply.save
+    @apply.rejected!
     redirect_to request.referrer
+  end
+
+  def feedback
+    @jobs = Job.all
+    @applies = current_candidate.profile.apply_jobs
   end
 end 

@@ -20,6 +20,7 @@
         <%= link_to 'Vagas', jobs_path %>
         <%= link_to 'Vagas aplicadas', appliedjobs_profiles_path %>
         <%= link_to 'Perfil', current_candidate.profile %>
+        <%= link_to  "Feedbacks", feedback_job_apply_jobs_path(current_candidate) %>
         <%= link_to 'Sair', destroy_candidate_session_path, method: :delete %>
       <% end %>
       <% if current_head_hunter.nil? && current_candidate.nil? %>

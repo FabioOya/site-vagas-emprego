@@ -5,10 +5,15 @@
     <p>Candidato destacado*</p>
   <% end %>
   <%= link_to 'Destacar', featured_profile_path(candidate.profile_id) %>
-  <%= link_to 'Rejeitar', reject_job_apply_job_path(@job.id, @apply_jobs) %>
+  <%= link_to 'Rejeitar', reject_job_apply_job_path(@job, candidate) %>
   <% if candidate.rejected? %>
     <p>Perfil rejeitado</p>
-  <% end  %>
+    <%= form_with url: reject_job_apply_job_path(candidate), method: :get, local: true do |f| %>
+      <%= f.label :reject_feedback,'Escreva um Feedback' %>
+      <%= f.text_field :reject_feedback %>
+      <%= f.submit 'Enviar Feedback' %>
+    <% end %>
+  <% end%>
 <% end %>
 
 

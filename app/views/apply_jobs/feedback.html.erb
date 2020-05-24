@@ -1,0 +1,13 @@
+<h3>Feedbacks</h3>
+
+<% @applies.each do |a| %>
+  <% if a.reject_feedback.present? %>
+    <dl>
+      <dt>Vaga: </dt>
+      <dd><%= a.job.title %></dd>
+      <dt>Feedback: </dt>
+      <dd><%= a.reject_feedback%></dd>
+    </dl>
+  <%end%>
+<%end%>
+<%= link_to  "Voltar", root_path %>
