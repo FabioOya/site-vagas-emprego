@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :apply_jobs, only: [:index, :new, :create]
   end
   resources :profiles do
+    get 'featured', on: :member
     get 'appliedjobs', on: :collection
     resources :commentaries, only: [:create]
   end

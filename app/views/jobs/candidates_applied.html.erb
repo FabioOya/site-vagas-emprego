@@ -1,4 +1,10 @@
 <h1>Candidatos aplicados na sua vaga</h1>
 <% @job.profiles.each do |candidate| %>
   <p><%= link_to candidate.full_name, candidate %></p>
+  <% if candidate.featured? %>
+    <p>Candidato destacado*</p>
+  <% end %>
+  <%= link_to  "Destacar", featured_profile_path(candidate) %>
 <% end %> 
+
+ 

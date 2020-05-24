@@ -43,6 +43,17 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(current_candidate.id)
   end
   
+  def featured
+    @profile = Profile.find(params[:id])
+    if @profile.not_featured?
+      @profile.featured!
+    elsif @profile.featured?  
+      @profile.not_featured!
+    end
+    redirect_to candidates_applied_job_path(@profile)
+  end
+
+
   private
 
   def profile_params

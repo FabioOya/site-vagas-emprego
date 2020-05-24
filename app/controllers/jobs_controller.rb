@@ -26,7 +26,7 @@ class JobsController < ApplicationController
   
   def edit
     @job = Job.find(params[:id])
-   end
+  end
 
   def update
     @job = Job.find(params[:id])
@@ -39,7 +39,7 @@ class JobsController < ApplicationController
 
   def search
     @q = params[:q]
-    @jobs = Job.search(@q)   
+    @jobs = Job.search(@q)
     # if @jobs.blank? || params[:q].blank?   ##TODO configurar busca caso nenhum resultado encontrado - testes quebrando quando implementado
     #   @jobs = Job.all
     #   flash.now[:alert] = "Nenhum resultado encontrado para: #{@q}"
@@ -48,7 +48,7 @@ class JobsController < ApplicationController
   end
 
   def candidates_applied
-    @job = Job.find(params[:id])
+    @job = Job.find_by(params[:id])
   end
 
   private

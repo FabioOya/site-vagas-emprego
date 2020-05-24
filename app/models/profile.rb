@@ -6,4 +6,6 @@ class Profile < ApplicationRecord
   has_many :jobs, through: :apply_jobs
   validates :full_name, :birthdate, :formation, 
             :description, :experience, presence: true
+
+  enum featured: { not_featured: 0, featured: 1}
 end

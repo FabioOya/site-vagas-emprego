@@ -7,5 +7,6 @@ FactoryBot.define do
     description { "Uma descrição" }
     experience { "Uma experiência" }
     candidate { create(:candidate) }
+    featured { 0 }
   end
 end
