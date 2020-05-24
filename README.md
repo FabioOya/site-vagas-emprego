@@ -1,24 +1,48 @@
-# README
+# Description
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Careers Website on RoR, current on development.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Run bundle install in your terminal.
 
-* System dependencies
+```bash
+bundle install
+```
 
-* Configuration
+## Running tests with RSpec
 
-* Database creation
+```RSpec
+# Default: Run all spec files (i.e., those matching spec/**/*_spec.rb)
+$ rspec
 
-* Database initialization
+# Run all spec files in a single directory (recursively)
+$ rspec spec/models
 
-* How to run the test suite
+# Run a single spec file
+$ rspec spec/controllers/accounts_controller_spec.rb
 
-* Services (job queues, cache servers, search engines, etc.)
+# Run a single example from a spec file (by line number)
+$ rspec spec/controllers/accounts_controller_spec.rb:8
 
-* Deployment instructions
+# See all options for running specs
+$ rspec --help
+```
 
-* ...
+## Gems
+```  
+  gem 'devise'  - to generate user models, views and validations
+  gem 'capybara'  - gem for tests
+  gem 'factory_bot_rails' - to simplify test write
+  gem 'rspec-rails' - gem for tests
+```
+
+## Ruby Version
+``` 
+Ruby '2.6.3'
+``` 
+
+## Rails Version
+``` 
+Rails '6.0.2'
+``` 
