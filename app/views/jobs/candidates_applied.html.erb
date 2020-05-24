@@ -1,10 +1,19 @@
 <h1>Candidatos aplicados na sua vaga</h1>
-<% @job.profiles.each do |candidate| %>
-  <p><%= link_to candidate.full_name, candidate %></p>
-  <% if candidate.featured? %>
+<% @job.apply_jobs.each do |candidate| %>
+  <p><%= link_to candidate.profile.full_name, candidate.profile %></p>
+  <% if candidate.profile.featured? %>
     <p>Candidato destacado*</p>
   <% end %>
-  <%= link_to  "Destacar", featured_profile_path(candidate) %>
-<% end %> 
+  <%= link_to 'Destacar', featured_profile_path(candidate.profile_id) %>
+  <%= link_to 'Rejeitar', reject_job_apply_job_path(@job.id, @apply_jobs) %>
+  <% if candidate.rejected? %>
+    <p>Perfil rejeitado</p>
+  <% end  %>
+<% end %>
+
+
+
+
+
 
  

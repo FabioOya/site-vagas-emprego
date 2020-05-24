@@ -28,4 +28,18 @@ class ApplyJobsController < ApplicationController
       render :new
     end
   end
+
+  def reject
+    @apply = ApplyJob.find(params[:id])
+    #@job = Job.find(params[:id])
+    #@apply.rejected = params[:rejected]
+    if @apply.not_rejected?
+      @apply.rejected!
+    elsif @apply.rejected? 
+      @profile.not_rejected!
+    end
+    # @apply.rejected!
+    @apply.save
+    redirect_to request.referrer
+  end
 end 

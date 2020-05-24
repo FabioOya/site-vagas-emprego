@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :jobs, only: [:index, :show, :new, :create] do
     get 'search', on: :collection
     get 'candidates_applied', on: :member
-    resources :apply_jobs, only: [:index, :new, :create]
+    resources :apply_jobs do
+      get 'reject', on: :member
+    end 
   end
   resources :profiles do
     get 'featured', on: :member

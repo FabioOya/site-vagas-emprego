@@ -47,10 +47,10 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     if @profile.not_featured?
       @profile.featured!
-    elsif @profile.featured?  
+    elsif @profile.featured? 
       @profile.not_featured!
     end
-    redirect_to candidates_applied_job_path(@profile)
+    redirect_to request.referrer
   end
 
 
