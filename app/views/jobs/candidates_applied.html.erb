@@ -6,6 +6,7 @@
   <% end %>
   <%= link_to 'Destacar', featured_profile_path(candidate.profile_id) %>
   <%= link_to 'Rejeitar', reject_job_apply_job_path(@job, candidate) %>
+  <%= link_to 'Enviar proposta', new_job_proposal_path(job_id: @job.id, profile_id: candidate.profile.id)%>
   <% if candidate.rejected? %>
     <p>Perfil rejeitado</p>
     <%= form_with url: reject_job_apply_job_path(candidate), method: :get, local: true do |f| %>
@@ -13,7 +14,7 @@
       <%= f.text_field :reject_feedback %>
       <%= f.submit 'Enviar Feedback' %>
     <% end %>
-  <% end%>
+  <% end %>
 <% end %>
 
 

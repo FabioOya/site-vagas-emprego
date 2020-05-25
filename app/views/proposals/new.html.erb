@@ -1,0 +1,12 @@
+<h1>Proposta</h1>
+<%= form_with model: [@job, @proposal], local: true do |f| %>
+  <%= f.label :begin_date, 'Data de inicio' %>
+  <%= f.date_field :begin_date %>
+  <%= f.label :salary, 'Salário' %>
+  <%= f.text_field :salary %>
+  <%= f.label :benefits, 'Benefícios' %>
+  <%= f.text_field :benefits %>
+  <%= f.label :role, 'Funções' %>
+  <%= f.text_field :role %>
+  <%= f.submit 'Enviar' %>
+<% end %>

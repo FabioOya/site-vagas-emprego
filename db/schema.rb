@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_135449) do
+ActiveRecord::Schema.define(version: 2020_05_24_205757) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -125,6 +125,21 @@ ActiveRecord::Schema.define(version: 2020_05_24_135449) do
     t.index ["candidate_id"], name: "index_profiles_on_candidate_id"
   end
 
+  create_table "proposals", force: :cascade do |t|
+    t.date "begin_date"
+    t.decimal "salary"
+    t.string "benefits"
+    t.string "role"
+    t.integer "head_hunter_id", null: false
+    t.integer "job_id", null: false
+    t.integer "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["head_hunter_id"], name: "index_proposals_on_head_hunter_id"
+    t.index ["job_id"], name: "index_proposals_on_job_id"
+    t.index ["profile_id"], name: "index_proposals_on_profile_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "apply_jobs", "jobs"
   add_foreign_key "apply_jobs", "profiles"
@@ -132,4 +147,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_135449) do
   add_foreign_key "commentaries", "profiles"
   add_foreign_key "jobs", "head_hunters"
   add_foreign_key "profiles", "candidates"
+  add_foreign_key "proposals", "head_hunters"
+  add_foreign_key "proposals", "jobs"
+  add_foreign_key "proposals", "profiles"
 end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :head_hunters
   root 'home#index'
   resources :jobs, only: [:index, :show, :new, :create] do
+    resources :proposals, only: [:new, :create]
     get 'search', on: :collection
     get 'candidates_applied', on: :member
     resources :apply_jobs do

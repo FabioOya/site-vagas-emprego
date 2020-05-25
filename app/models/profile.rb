@@ -4,6 +4,7 @@ class Profile < ApplicationRecord
   has_many :commentaries
   has_many :apply_jobs
   has_many :jobs, through: :apply_jobs
+  has_many :proposals
   validates :full_name, :birthdate, :formation, 
             :description, :experience, presence: true
 
