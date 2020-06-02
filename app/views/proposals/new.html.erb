@@ -8,5 +8,6 @@
   <%= f.text_field :benefits %>
   <%= f.label :role, 'Funções' %>
   <%= f.text_field :role %>
+  <%= f.hidden_field :profile_id, value: @profile.id %>
   <%= f.submit 'Enviar' %>
 <% end %>

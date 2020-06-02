@@ -9,7 +9,7 @@ class ProposalsController < ApplicationController
     @job = Job.find(params[:job_id])
     @proposal = Proposal.new(proposal_params.merge(job: @job, head_hunter: current_head_hunter, profile: @profile))
     @proposal.profile = @profile
-    if @proposal.save
+    if @proposal.save!
       flash[:notice] = 'Proposta enviada!'
       redirect_to root_path
     else
