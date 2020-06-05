@@ -24,6 +24,6 @@ feature 'Headhunter view candidates profiles' do
   scenario 'cannot view unless logged in' do
     visit profiles_path
     
-    expect(current_path).to eq(new_head_hunter_session_path)
+    expect(current_path).to eq(root_path)
   end
 end

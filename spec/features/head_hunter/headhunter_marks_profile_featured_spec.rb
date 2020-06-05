@@ -12,7 +12,6 @@ feature 'Headhunter marks profile as featured' do
 
     visit candidates_applied_job_path(job)
     click_on 'Destacar'
-
     expect(current_path).to eq(candidates_applied_job_path(job))
     expect(page).to have_content('Candidato destacado')
   end
@@ -23,11 +22,11 @@ feature 'Headhunter marks profile as featured' do
     profile = create(:profile, candidate: candidate, featured: 1)
     apply = create(:apply_job, job: job, profile: profile)
 
-    login_as headhunter, scope: :headhunter
+    login_as headhunter, scope: :head_hunter
 
     visit candidates_applied_job_path(job)
+    save_page
     click_on 'Destacar'
-
     expect(current_path).to eq(candidates_applied_job_path(job))
     expect(page).not_to have_content('Candidato destacado')
   end
